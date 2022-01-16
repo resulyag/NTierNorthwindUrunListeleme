@@ -106,9 +106,10 @@ namespace WinUI
 
         private void silToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //db.Set<Products>().Remove(secProduct);
-            //db.SaveChanges();
-            //dataGridView1Doldur();
+            int secId = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            secProduct = productRepository.GetByID(secId);
+            productRepository.Delete(secProduct);
+            dataGridView1Doldur();
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
